@@ -9,7 +9,7 @@ int main()
 
     // Printing variable values
     printf("Age: %d\n", age);
-    printf("GPA: %f\n", gpa); // Format to 2 decimal places
+    printf("GPA: %.2f\n", gpa); // Format to 2 decimal places
     printf("Grade: %c\n", grade);
 
     return 0;

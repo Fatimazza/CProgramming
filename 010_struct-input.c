@@ -6,8 +6,10 @@ struct Person
     int age;
 };
 
-void inputManually(struct Person person)
+int main()
 {
+    struct Person person;
+
     printf("Enter name: ");
     fgets(person.name, sizeof(person.name), stdin);
 
@@ -16,12 +18,6 @@ void inputManually(struct Person person)
 
     printf("Name: %s", person.name);
     printf("Age: %d\n", person.age);
-}
-
-int main()
-{
-    struct Person person;
-    inputManually(person);
 
     return 0;
 }

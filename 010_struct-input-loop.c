@@ -18,14 +18,17 @@ int main()
 
     printf("How many people? ");
     scanf("%d", &n);
+    getchar();
 
     // fill data
     for (int i = 0; i < n; i++)
     {
         printf("Enter name for person %d: ", i + 1);
-        scanf("%s", people[i].name);
+        fgets(people[i].name, sizeof(people[i].name), stdin);
+
         printf("Enter age: ");
         scanf("%d", &people[i].age);
+        getchar();
     }
 
     // display data

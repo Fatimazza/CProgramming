@@ -13,6 +13,13 @@ void removeNewline(char *str)
     str[strcspn(str, "\n")] = '\0';
 }
 
+int errorReadingInput(struct Person *people)
+{
+    fprintf(stderr, "Error reading input!\n");
+    free(people);
+    return 1;
+}
+
 int main()
 {
     // struct Person people[100]; // fixed size array
@@ -36,12 +43,14 @@ int main()
     for (int i = 0; i < n; i++)
     {
         printf("Enter name for person %d: ", i + 1);
-        fgets(people[i].name, sizeof(people[i].name), stdin);
+        if (fgets(people[i].name, sizeof(people[i].name), stdin) == NULL)
+            return errorReadingInput(people);
         removeNewline(people[i].name);
 
         printf("Enter age: ");
         char bufAge[10];
-        fgets(bufAge, sizeof(bufAge), stdin);
+        if (fgets(bufAge, sizeof(bufAge), stdin) == NULL)
+            return errorReadingInput(people);
         removeNewline(bufAge);
         people[i].age = atoi(bufAge);
     }

@@ -10,9 +10,12 @@ struct Person
 
 int main()
 {
-    struct Person people[100]; // fixed size array
+    // struct Person people[100]; // fixed size array
 
     int n;
+    // allocate memory for n people
+    struct Person *people = (struct Person *)malloc(n * sizeof(struct Person));
+
     printf("How many people? ");
     scanf("%d", &n);
 
@@ -31,6 +34,9 @@ int main()
     {
         printf("Name: %s, Age: %d\n", people[i].name, people[i].age);
     }
+
+    // free memory
+    free(people);
 
     return 0;
 }

@@ -8,6 +8,11 @@ struct Person
     int age;
 };
 
+void removeNewline(char *str)
+{
+    str[strcspn(str, "\n")] = '\0';
+}
+
 int main()
 {
     // struct Person people[100]; // fixed size array
@@ -25,6 +30,7 @@ int main()
     {
         printf("Enter name for person %d: ", i + 1);
         fgets(people[i].name, sizeof(people[i].name), stdin);
+        removeNewline(people[i].name);
 
         printf("Enter age: ");
         scanf("%d", &people[i].age);

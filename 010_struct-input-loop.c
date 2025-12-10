@@ -40,8 +40,10 @@ int main()
         removeNewline(people[i].name);
 
         printf("Enter age: ");
-        scanf("%d", &people[i].age);
-        getchar();
+        char bufAge[10];
+        fgets(bufAge, sizeof(bufAge), stdin);
+        removeNewline(bufAge);
+        people[i].age = atoi(bufAge);
     }
 
     // display data

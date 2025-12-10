@@ -26,6 +26,7 @@ int main()
 
     int n;
 
+    // avoid memory garbage when input is invalid
     printf("How many people? ");
     if (scanf("%d", &n) != 1)
     {

@@ -27,7 +27,11 @@ int main()
     int n;
 
     printf("How many people? ");
-    scanf("%d", &n);
+    if (scanf("%d", &n) != 1)
+    {
+        printf("Invalid number!\n");
+        return 1;
+    }
     getchar();
 
     // allocate memory for n people, after knowing n

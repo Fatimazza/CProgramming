@@ -18,12 +18,19 @@ int main()
     // struct Person people[100]; // fixed size array
 
     int n;
-    // allocate memory for n people
-    struct Person *people = (struct Person *)malloc(n * sizeof(struct Person));
 
     printf("How many people? ");
     scanf("%d", &n);
     getchar();
+
+    // allocate memory for n people, after knowing n
+    struct Person *people = (struct Person *)malloc(n * sizeof(struct Person));
+
+    if (people == NULL)
+    {
+        fprintf(stderr, "Memory allocation failed!\n");
+        return 1;
+    }
 
     // fill data
     for (int i = 0; i < n; i++)

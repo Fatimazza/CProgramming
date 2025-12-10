@@ -49,13 +49,23 @@ int main()
     {
         printf("Enter name for person %d: ", i + 1);
         if (fgets(people[i].name, sizeof(people[i].name), stdin) == NULL)
-            return errorReadingInput(people);
+        {
+            // can use return errorReadingInput(people);
+            fprintf(stderr, "Error reading input!\n");
+            free(people);
+            return 1;
+        }
         removeNewline(people[i].name);
 
         printf("Enter age: ");
         char bufAge[10];
         if (fgets(bufAge, sizeof(bufAge), stdin) == NULL)
-            return errorReadingInput(people);
+        {
+            // can use return errorReadingInput(people);
+            fprintf(stderr, "Error reading input!\n");
+            free(people);
+            return 1;
+        }
         removeNewline(bufAge);
         people[i].age = atoi(bufAge);
     }
